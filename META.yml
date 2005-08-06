@@ -1,11 +1,13 @@
---- #YAML:1.0
-name: Math-Symbolic-Custom-CCompiler
-version: 0.01
-abstract: Compile Math::Symbolic trees to C
-license: perl
-distribution_type: module
+# http://module-build.sourceforge.net/META-spec.html
+#XXXXXXX This is a prototype!!!  It will change in the future!!! XXXXX#
+name:         Math-Symbolic-Custom-CCompiler
+version:      1.00
+version_from: lib/Math/Symbolic/Custom/CCompiler.pm
+installdirs:  site
 requires:
-  Test::More: 0.44
-  Math::Symbolic: 0.127
-  Inline::C: 0.44
-dynamic_config: 0
+    Inline::C:                     0.44
+    Math::Symbolic:                0.127
+    Test::More:                    0.44
+
+distribution_type: module
+generated_by: ExtUtils::MakeMaker version 6.30

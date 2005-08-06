@@ -10,7 +10,7 @@ use Math::Symbolic::Custom::Base;
 BEGIN {*import = \&Math::Symbolic::Custom::Base::aggregate_import}
 
 use Math::Symbolic::ExportConstants qw/:all/;
-our $VERSION = '0.01';
+our $VERSION = '1.00';
 
 our $Aggregate_Export = [qw/to_c to_compiled_c/];
 
@@ -80,7 +80,8 @@ sub to_c {
 	my %order = map { ( $_, $count++ ) } @$order;
 	no warnings 'recursion';
 
-	my $vars = Math::Symbolic::Compiler::_find_vars($tree);
+	my $vars = [ $tree->explicit_signature() ];
+
 	my %vars;
 	my @not_placed;
 	foreach (@$vars) {
@@ -221,13 +222,19 @@ run-time, thus allowing the user to do symbolic calculations in Perl
 with Math::Symbolic and then use the results in a fast numeric
 environment.
 
-This software is still experimental. The author appreciates feedback
-of any kind.
+This software generates code. Code generators are difficult to test, but the
+first release of the module is now 1.5 years old and I haven't received any
+bug reports, so I consider it somewhat stable now.
 
 Please read the manpage of Math::Symbolic::Compiler which comes with
 the Math::Symbolic distribution. Most of the gotchas involved with
 compiling the functions to Perl subroutines also apply to this module
-which compiled to C instead.
+which compiles to C instead.
+
+Alternatively, you can use the module not for faster calculations from your
+Perl program, but to generate C code for you. I have used it to generate
+an implementation for (many!) Zernike Polynomials for work in C.
+
 The module adds two methods to all Math::Symbolic objects. These are:
 
 =head2 $ms_tree->to_c()
