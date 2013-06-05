@@ -10,7 +10,7 @@ use Math::Symbolic::Custom::Base;
 BEGIN {*import = \&Math::Symbolic::Custom::Base::aggregate_import}
 
 use Math::Symbolic::ExportConstants qw/:all/;
-our $VERSION = '1.03';
+our $VERSION = '1.04';
 
 our $Aggregate_Export = [qw/to_c to_compiled_c/];
 
@@ -191,6 +191,8 @@ sub compile {
 
 1;
 __END__
+
+=encoding utf8
 
 =head1 NAME
 

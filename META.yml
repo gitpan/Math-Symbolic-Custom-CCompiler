@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Math-Symbolic-Custom-CCompiler
-version:            1.03
+version:            1.04
 abstract:           Compile Math::Symbolic trees to C
 author:
     - Steffen Mueller <symbolic-module at steffen-mueller dot net>
